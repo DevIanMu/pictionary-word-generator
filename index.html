@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Pictionary Word Generator — Free Random Words with Timer</title>
+  <meta name="description" content="Free Pictionary word generator with 500+ words across 11 categories and 3 difficulty levels. Built-in timer included. Perfect for game night, family gatherings, and parties!">
+  <meta name="keywords" content="pictionary word generator, random pictionary words, pictionary ideas, pictionary words for kids, charades words, easy pictionary words, hard pictionary words, pictionary word list, random word generator">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pictionarywordgenerator.com/">
+  <meta property="og:title" content="Pictionary Word Generator — Free Random Words with Timer">
+  <meta property="og:description" content="Get random Pictionary words instantly! 500+ words with categories, difficulty levels, and built-in timer. Perfect for game night!">
+  <meta property="og:image" content="https://pictionarywordgenerator.com/assets/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://pictionarywordgenerator.com/">
+  <meta property="twitter:title" content="Pictionary Word Generator — Free Random Words with Timer">
+  <meta property="twitter:description" content="Get random Pictionary words instantly! 500+ words with categories, difficulty levels, and built-in timer.">
+  <meta property="twitter:image" content="https://pictionarywordgenerator.com/assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Pictionary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pictionary is a classic drawing game where players draw a word or phrase while their teammates try to guess what it is within a time limit. Our Pictionary Word Generator helps you come up with creative words instantly for your game night."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you play Pictionary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Split into teams. One player draws the randomly selected word without using letters, numbers, or symbols. Their teammates guess within the time limit (usually 60 seconds). Score a point for each correct guess, then switch drawers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are good Pictionary words for kids?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Good Pictionary words for kids include simple nouns like Cat, Dog, Apple, Pizza, Beach, and Tree. Use our generator with 'Easy' difficulty and categories like Animals, Food, and Nature for kid-friendly words."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Pictionary Word Generator",
+    "description": "Free online Pictionary word generator with categories, difficulty levels, and built-in timer.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Background Confetti Container -->
+  <div class="confetti-bg" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Decorative Bunting -->
+    <div class="bunting" aria-hidden="true">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+        <polygon points="50,10 70,60 30,60" fill="#FF6B35"/>
+        <polygon points="150,10 170,60 130,60" fill="#FFD23F"/>
+        <polygon points="250,15 270,65 230,65" fill="#06D6A0"/>
+        <polygon points="350,10 370,60 330,60" fill="#FF6B9D"/>
+        <polygon points="450,15 470,65 430,65" fill="#FF8C42"/>
+        <polygon points="550,10 570,60 530,60" fill="#AA96DA"/>
+        <polygon points="650,15 670,65 630,65" fill="#4ECDC4"/>
+        <polygon points="750,10 770,60 730,60" fill="#FF6B35"/>
+        <polygon points="850,15 870,65 830,65" fill="#FFD23F"/>
+        <polygon points="950,10 970,60 930,60" fill="#06D6A0"/>
+        <polygon points="1050,15 1070,65 1030,65" fill="#FF6B9D"/>
+        <polygon points="1150,10 1170,60 1130,60" fill="#FF8C42"/>
+        <!-- String line -->
+        <line x1="0" y1="10" x2="1200" y2="10" stroke="#2D3047" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Floating Balloons -->
+    <div class="balloon balloon-1" aria-hidden="true">🎈</div>
+    <div class="balloon balloon-2" aria-hidden="true">🎈</div>
+    <div class="balloon balloon-3" aria-hidden="true">🎈</div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <h1 class="site-title">Pictionary Word Generator</h1>
+      <p class="site-subtitle">Draw it, guess it, have fun!</p>
+    </header>
+
+    <!-- Card Display Area -->
+    <section class="card-area" aria-label="Word card display">
+      <!-- Card Deck Placeholder -->
+      <div class="card-deck" id="cardDeck">
+        <div class="deck-card deck-card-1"></div>
+        <div class="deck-card deck-card-2"></div>
+        <div class="deck-card deck-card-3"></div>
+      </div>
+
+      <!-- Active Card (initially hidden) -->
+      <div class="word-card" id="wordCard" style="display: none;">
+        <div class="card-inner">
+          <div class="card-face card-back">
+            <span class="card-back-icon">❓</span>
+          </div>
+          <div class="card-face card-front">
+            <span class="card-category" id="cardCategory"></span>
+            <span class="card-emoji" id="cardEmoji"></span>
+            <span class="card-word" id="cardWord"></span>
+            <div class="card-difficulty" id="cardDifficulty"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="action-area">
+      <button class="btn btn-primary" id="drawBtn" type="button">
+        <span class="btn-icon">🎲</span>
+        <span class="btn-text">DRAW A CARD!</span>
+      </button>
+      <button class="btn btn-timer" id="timerBtn" type="button">
+        <span class="btn-icon">⏱️</span>
+        <span class="btn-text">START TIMER</span>
+      </button>
+    </section>
+
+    <!-- Timer Display -->
+    <section class="timer-section" id="timerSection" style="display: none;" aria-label="Timer">
+      <div class="timer-ring">
+        <svg class="timer-svg" viewBox="0 0 120 120">
+          <circle class="timer-track" cx="60" cy="60" r="54"/>
+          <circle class="timer-progress" id="timerProgress" cx="60" cy="60" r="54"/>
+        </svg>
+        <span class="timer-number" id="timerNumber">60</span>
+      </div>
+      <p class="timer-label" id="timerLabel">seconds remaining</p>
+    </section>
+
+    <!-- Filter Panel -->
+    <section class="filter-section">
+      <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false">
+        <span class="filter-summary" id="filterSummary">Filters: All Categories · Easy</span>
+        <span class="filter-arrow">▼</span>
+      </button>
+
+      <div class="filter-content" id="filterContent">
+        <!-- Categories -->
+        <div class="filter-group">
+          <h3 class="filter-heading">Categories</h3>
+          <div class="category-pills" id="categoryPills"></div>
+        </div>
+
+        <!-- Difficulty -->
+        <div class="filter-group">
+          <h3 class="filter-heading">Difficulty</h3>
+          <div class="difficulty-options" id="difficultyOptions">
+            <button class="diff-btn diff-btn-easy active" data-difficulty="easy" type="button">
+              <span class="diff-stars">★☆☆</span>
+              <span class="diff-label">Easy</span>
+            </button>
+            <button class="diff-btn diff-btn-medium" data-difficulty="medium" type="button">
+              <span class="diff-stars">★★☆</span>
+              <span class="diff-label">Medium</span>
+            </button>
+            <button class="diff-btn diff-btn-hard" data-difficulty="hard" type="button">
+              <span class="diff-stars">★★★</span>
+              <span class="diff-label">Hard</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Timer Setting -->
+        <div class="filter-group">
+          <h3 class="filter-heading">Timer Duration</h3>
+          <select class="timer-select" id="timerSelect">
+            <option value="30">30 seconds</option>
+            <option value="60" selected>60 seconds</option>
+            <option value="90">90 seconds</option>
+            <option value="120">120 seconds</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="seo-content">
+      <details class="seo-details">
+        <summary>📖 What is Pictionary?</summary>
+        <div class="seo-text">
+          <p><strong>Pictionary</strong> is a classic drawing game where players draw a word or phrase while their teammates try to guess what it is. It's one of the most popular party games for families, friends, and classroom activities. Our <em>Pictionary Word Generator</em> helps you come up with creative words instantly — perfect for game night!</p>
+          <p>Unlike other <em>random word generators</em>, our tool is specifically designed for Pictionary and charades. We organize words by category (Animals, Food, Actions, Movies, and more) and difficulty level, so you can tailor the game to your audience.</p>
+        </div>
+      </details>
+
+      <details class="seo-details">
+        <summary>🎯 How to Play Pictionary</summary>
+        <div class="seo-text">
+          <ol>
+            <li>Split into teams (2 or more players per team)</li>
+            <li>Use our <strong>pictionary word generator</strong> to get a random word</li>
+            <li>One player draws the word — no letters, numbers, or symbols allowed!</li>
+            <li>Teammates guess what it is within the time limit (default 60 seconds)</li>
+            <li>Score a point for each correct guess</li>
+            <li>Switch drawers and keep playing!</li>
+          </ol>
+          <p>Pro tip: Use the built-in timer to keep the game moving fast and fair!</p>
+        </div>
+      </details>
+
+      <details class="seo-details">
+        <summary>📋 Pictionary Rules</summary>
+        <div class="seo-text">
+          <ul>
+            <li>No writing words or numbers in your drawing</li>
+            <li>No verbal clues or hand gestures</li>
+            <li>Use our generator to pick <em>random pictionary words</em> by category and difficulty</li>
+            <li>Set your own time limit using the built-in timer (30s, 60s, 90s, or 120s)</li>
+            <li>For kids, choose "Easy" difficulty with categories like Animals and Food</li>
+            <li>For adults, try "Hard" with Idioms and abstract concepts!</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="seo-details">
+        <summary>👶 Pictionary Words for Kids</summary>
+        <div class="seo-text">
+          <p>Looking for <em>easy pictionary words</em> for children? Select "Easy" difficulty and categories like Animals, Food, Nature, and Objects. These categories contain simple, visual words that kids can easily draw and guess — like Cat, Apple, Tree, and Beach. Avoid Idioms and difficult Professions for younger players.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <nav class="footer-nav">
+        <a href="#" class="footer-link">About</a>
+        <span class="footer-sep">·</span>
+        <a href="#" class="footer-link">Privacy</a>
+        <span class="footer-sep">·</span>
+        <a href="#" class="footer-link">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2026 Pictionary Word Generator. Free tool for game nights everywhere.</p>
+    </footer>
+
+  </main>
+
+  <!-- Confetti burst container -->
+  <div class="confetti-burst" id="confettiBurst" aria-hidden="true"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
