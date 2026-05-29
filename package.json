@@ -1,6 +1,6 @@
 {
   "name": "pictionary-word-generator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Free Pictionary word generator with 500+ words, categories, difficulty levels, and built-in timer.",
   "type": "module",
   "scripts": {

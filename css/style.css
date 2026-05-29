@@ -769,6 +769,14 @@ body {
   background: #FFF5EB;
 }
 
+.seo-details summary .seo-heading {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  display: inline;
+  color: inherit;
+}
+
 .seo-details summary::-webkit-details-marker {
   display: none;
 }
