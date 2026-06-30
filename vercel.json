@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "pictionary-word.com"
+        }
+      ],
+      "destination": "https://www.pictionary-word.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pictionary-word.com"
+        }
+      ],
+      "destination": "https://www.pictionary-word.com/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pictionary-word.com/sitemap.xml
+Sitemap: https://www.pictionary-word.com/sitemap.xml
